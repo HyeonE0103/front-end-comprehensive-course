@@ -1,0 +1,10 @@
+div {
+  width: 100px;
+  height: 100px;
+  background: url("../images/cat.jpg");
+}
+
+img {
+  width: 200px;
+  height: 200px;
+}
