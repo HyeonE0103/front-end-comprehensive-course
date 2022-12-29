@@ -1,0 +1,30 @@
+@import url("./box.css");
+
+/* 설명작성 */
+div {
+  font-size: 100px;
+}
+* {
+  color: red;
+}
+li {
+  color: red;
+}
+span.orange {
+  color: red;
+}
+#orange {
+  color: red;
+}
+ul > .orange {
+  color: red;
+}
+div .orange {
+  color: red;
+}
+.orange + li {
+  color: red;
+}
+.orange ~ li {
+  color: red;
+}
