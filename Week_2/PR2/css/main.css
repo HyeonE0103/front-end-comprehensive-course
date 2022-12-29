@@ -1,0 +1,32 @@
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: orange;
+  transition: 1s;
+}
+.box:hover {
+  width: 300px;
+  background-color: royalblue;
+}
+.box:active {
+  width: 500px;
+  background-color: rosybrown;
+}
+input:focus {
+  background-color: darkgrey;
+}
+.box:focus {
+  background-color: darkgrey;
+}
+.fruits span:first-child {
+  color: red;
+}
+.fruits p:last-child {
+  color: orange;
+}
+.fruits *:nth-child(2) {
+  color: green;
+}
+.fruits *:not(span) {
+  color: blue;
+}
