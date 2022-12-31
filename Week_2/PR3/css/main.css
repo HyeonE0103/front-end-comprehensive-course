@@ -1,0 +1,9 @@
+[type] {
+  background-color: orange;
+}
+[type="password"] {
+  background-color: red;
+}
+[data-fruit-name] {
+  color: blue;
+}
