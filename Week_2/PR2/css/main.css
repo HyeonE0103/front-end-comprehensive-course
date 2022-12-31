@@ -30,3 +30,27 @@ input:focus {
 .fruits *:not(span) {
   color: blue;
 }
+.front::before {
+  content: "앞!";
+}
+.front::after {
+  content: "뒤!";
+}
+.box2 {
+  width: 100px;
+  height: 100px;
+  background-color: yellow;
+}
+.box2::after {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 30px;
+  background-color: green;
+}
+[disabled] {
+  color: red;
+}
+[type="password"] {
+  color: red;
+}
