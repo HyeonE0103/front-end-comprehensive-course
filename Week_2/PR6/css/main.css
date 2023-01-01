@@ -3,11 +3,19 @@
 .container .item {
   width: 100px;
   height: 100px;
-  background-color: orange;
+  background-color: royalblue;
   margin-bottom: 20px;
-  border: 4px solid red;
+  border: 4px dashed palegreen;
   margin: -10px 10px;
 }
 .container .item:first-child {
   padding: 20px;
+}
+
+.radius {
+  margin-top: 50px;
+  width: 100px;
+  height: 100px;
+  background-color: darkkhaki;
+  border-radius: 20px;
 }
