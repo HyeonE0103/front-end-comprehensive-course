@@ -1,0 +1,17 @@
+h1 {
+  font-size: 24px;
+  font-weight: 700;
+  font-style: italic;
+  font-family: serif;
+}
+p {
+  /* font-size: 16px; */
+  width: 350px;
+  padding: 10px;
+  border: 1px solid;
+  box-sizing: border-boxs;
+}
+div {
+  font-size: 16px;
+  line-height: 32px; /*2나 200%도 같은 효과 폰트 사이즈가 16으로 line-heihg가 폰트의 2배이기 때문*/
+}
