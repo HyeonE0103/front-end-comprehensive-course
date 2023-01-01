@@ -1,0 +1,32 @@
+.item {
+  width: 100px;
+  height: 100px;
+  background-color: yellow;
+}
+.item:first-child {
+  box-sizing: border-box;
+  border: 4px solid orange;
+  padding: 20px;
+}
+
+.parent {
+  width: 200px;
+  height: 150px;
+  background-color: greenyellow;
+  margin: 20px;
+  overflow: visible; /*auto;*/
+}
+.child {
+  width: 300px;
+  height: 100px;
+  background-color: green;
+  opacity: 0.2;
+}
+
+span {
+  display: block;
+  width: 120px;
+  height: 30px;
+  background-color: lightpink;
+  color: white;
+}
