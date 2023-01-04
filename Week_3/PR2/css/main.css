@@ -1,0 +1,13 @@
+body {
+  height: 3000px;
+}
+div {
+  /* width: 200px; */
+  height: 200px;
+  background-color: lightcoral;
+  background-image: url("https://images.unsplash.com/photo-1595681242679-1b77b1e6a3c8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Zmxvd2VyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
