@@ -1,0 +1,129 @@
+.container {
+  margin: 50px;
+  background-color: darkgray;
+  display: flex;
+  flex-direction: column-reverse;
+}
+.container .item {
+  width: 100px;
+  height: 100px;
+  border: 3px dashed;
+  background-color: dimgrey;
+}
+
+.container2 {
+  margin: 50px;
+  width: 500px;
+  background-color: darkolivegreen;
+  display: flex;
+  flex-wrap: wrap; /*줄바꿈 여부 wrap: 여러 줄로 묶음*/
+}
+.container2 .item2 {
+  width: 100px;
+  height: 100px;
+  border: 3px dashed;
+  background-color: darkkhaki;
+}
+
+.container3 {
+  margin: 50px;
+  background-color: darkcyan;
+  display: flex;
+  justify-content: center;
+}
+.container3 .item3 {
+  width: 100px;
+  height: 100px;
+  border: 3px dashed;
+  background-color: lightseagreen;
+}
+
+.box {
+  display: flex;
+}
+.container4 {
+  width: 200px;
+  height: 200px;
+  background-color: beige;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 50px;
+}
+.container4 .item4 {
+  width: 50px;
+  border: 3px dashed;
+  background-color: bisque;
+}
+.container5 {
+  width: 200px;
+  height: 200px;
+  background-color: beige;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 50px;
+}
+.container5 .item5 {
+  width: 50px;
+  height: 50px;
+  border: 3px dashed;
+  background-color: bisque;
+}
+.container6 {
+  width: 200px;
+  height: 200px;
+  background-color: beige;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  margin: 50px;
+}
+.container6 .item6 {
+  width: 50px;
+  height: 50px;
+  border: 3px dashed;
+  background-color: bisque;
+}
+
+.container7 {
+  margin: 50px;
+  width: 200px;
+  height: 200px;
+  background-color: goldenrod;
+  display: flex;
+  flex-wrap: wrap;
+}
+.container7 .item7 {
+  width: 50px;
+  border: 3px dashed;
+  background-color: gold;
+}
+.container8 {
+  margin: 50px;
+  width: 200px;
+  height: 200px;
+  background-color: goldenrod;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+.container8 .item8 {
+  width: 50px;
+  height: 50px;
+  border: 3px dashed;
+  background-color: gold;
+}
+.container9 {
+  margin: 50px;
+  width: 200px;
+  height: 200px;
+  background-color: goldenrod;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+.container9 .item9 {
+  width: 50px;
+  height: 50px;
+  border: 3px dashed;
+  background-color: gold;
+}
