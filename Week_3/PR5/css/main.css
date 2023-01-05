@@ -1,0 +1,7 @@
+span {
+  width: 100px;
+  height: 100px;
+  background-color: darkgrey;
+  font-size: 40px;
+  position: absolute;   /*display 속성이 block으로 변경됨*/
+}
