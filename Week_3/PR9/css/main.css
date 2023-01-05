@@ -1,0 +1,10 @@
+div {
+  width: 100px;
+  height: 100px;
+  background-color: darkcyan;
+  transition: width 0.5s 0.5s, background-color 1s 1s;
+}
+div:active {
+  width: 300px;
+  background-color: cornflowerblue;
+}
