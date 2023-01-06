@@ -1,0 +1,58 @@
+.container {
+  margin: 20px;
+  width: 100px;
+  height: 100px;
+  background-color: darkgray;
+}
+.container .item {
+  width: 100px;
+  height: 100px;
+  background-color: dimgray;
+  transform: translate(20px, 20px) scale(0.8) rotate(45deg) skewX(-45deg);
+}
+.container .item2 {
+  width: 100px;
+  height: 100px;
+  background-color: dimgray;
+  transform: perspective(300px) rotateX(45deg);
+}
+
+.container2 {
+  margin: 20px;
+  width: 200px;
+  height: 100px;
+  background-color: darkgray;
+}
+.container2 .item3 {
+  width: 100px;
+  height: 100px;
+  background-color: dimgray;
+  transform: perspective(500px) rotateY(45deg);
+}
+.container3 {
+  margin: 20px;
+  width: 200px;
+  height: 100px;
+  background-color: darkgray;
+  perspective: 500px;
+}
+.container3 .item4 {
+  width: 100px;
+  height: 100px;
+  background-color: dimgray;
+  transform: rotateY(45deg);
+}
+
+.container2 .item5 {
+  width: 100px;
+  height: 100px;
+  background-color: dimgray;
+  transform: rotateY(180deg);
+}
+.container3 .item6 {
+  width: 100px;
+  height: 100px;
+  background-color: dimgray;
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+}
