@@ -7,6 +7,7 @@
 // Array: []
 // Object: {}
 
+//문자데이터
 const str = "0 123";
 //문자데이터 0 123
 console.log(str.length);
