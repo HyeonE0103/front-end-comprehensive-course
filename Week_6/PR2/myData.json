@@ -1,0 +1,9 @@
+{
+  "_comment": "주석, json이라는 확장자를 가지고 있는 하나의 파일이 곧 하나의 데이터가 됨",
+  "string": "H.E",
+  "number": 123,
+  "boolean": true,
+  "null": null,
+  "object": {},
+  "array": []
+}
