@@ -1,3 +1,6 @@
+const hooks = [];
+let currentCompoent = 0;
+
 export class Component {
   constructor(props) {
     //class컴포넌트에 constructor은 함수컴포넌트에 함수의 역할을 함
@@ -36,6 +39,17 @@ function makeProps(props, children) {
     ...props,
     children: children.length === 1 ? children[0] : children,
   };
+  const modifier = (nextValue) => {
+    hooks[currentCompoent] = nextValue;
+  };
+  return [hooks[currentCompoent], modifier];
+}
+
+function useState(initValue) {
+  let position = currentCompoent - 1;
+  if (!hooks[position]) {
+    hooks[position] = initValue;
+  }
 }
 
 export function createEl(tag, props, ...children) {
@@ -46,13 +60,15 @@ export function createEl(tag, props, ...children) {
       //클래스라면
       const instance = new tag(makeProps(props, children));
       return instance.render();
+    }
+    hooks[currentCompoent] = null; //hook 세팅
+    currentCompoent++;
+    //일반함수라면
+    if (children.length > 0) {
+      return tag(makeProps(props, children));
+      //함수컴포넌트가 호출된 다음에 hook이 함수 안에서 호출되서 인덱스가 맞아짐
     } else {
-      //일반함수라면
-      if (children.length > 0) {
-        return tag(makeProps(props, children));
-      } else {
-        return tag(props);
-      }
+      return tag(props);
     }
   } else {
     return {
@@ -60,6 +76,8 @@ export function createEl(tag, props, ...children) {
       tag, //이름이 변수와 같으니 생략가능 tag: tag
       props,
       children,
+      //Virtual DOM에 input데이터
+      //객체의 특징은 트리구조를 가지고 있다는 것
     };
   }
 }
@@ -69,3 +87,16 @@ export function render(vdom, container) {
   //container에 자식 추가
   //바깥쪽에서 내부구조에 관심을 갖지 않게 함(알지 안아도 되게)
 }
+
+// export const render = (function () {
+//   //업데이트할때마다 비교해서 이전과 비교하여 업데이트 된 부분은 업데이트
+//   let prevDom = null;
+
+//   return function (vdom, container) {
+//     if (prevDom === null) {
+//       prevDom = vdom;
+//     }
+//     //diff
+//     container.appendChild(createDom(vdom));
+//   };
+// })();
