@@ -1,4 +1,4 @@
-import { createEl, render } from "./react";
+import { createEl, render, Component } from "./react";
 //이 js파일에서 createEl을 사용하지 않더라도 실제 실행은 트랜스파일링된 bundle파일이
 //실행이 되고 createEl이 사용되므로 createEl을 포함시켜주어야 함
 /* @jsx createEl*/
@@ -72,4 +72,43 @@ const vdom3 = (
     </ul>
   </p>
 );
-render(vdom3, document.querySelector("#root"));
+// render(vdom3, document.querySelector("#root"));
+
+// function Title(props) {
+//   //컴포넌트가 바깥쪽에서 props를 데이터로 주입받아서 활용
+//   return <h1>{props.children}</h1>;
+// }
+function Item(props) {
+  return <li style={`color:${props.color}`}>{props.children}</li>;
+}
+// const vdom4 = (
+//   //사용자 컴포넌트를 이용해서 만들기
+//   <p>
+//     <Title>React 잘 만들기</Title>
+//     <ul>
+//       <Item color="red">첫번째 아이템</Item>
+//       <Item color="crimson">두번째 아이템</Item>
+//       <Item color="orange">세번째 아이템</Item>
+//     </ul>
+//   </p>
+// );
+// render(vdom4, document.querySelector("#root"));
+
+class Title extends Component {
+  render() {
+    return <h1>{this.props.children}</h1>;
+  }
+}
+const App = () => (
+  //사용자 컴포넌트를 이용해서 만들기
+  <p>
+    <Title>React 클래스 컴포넌트 잘 만들기</Title>
+    <ul>
+      <Item color="red">첫번째 아이템</Item>
+      <Item color="blue">두번째 아이템</Item>
+      <Item color="green">세번째 아이템</Item>
+    </ul>
+  </p>
+);
+
+render(<App />, document.querySelector("#root"));

@@ -1,3 +1,10 @@
+export class Component {
+  constructor(props) {
+    //class컴포넌트에 constructor은 함수컴포넌트에 함수의 역할을 함
+    this.props = props;
+  }
+}
+
 export function createDom(node) {
   //vdom은 전체를 뜻하니 node라는 변수명이 좋겠군
   //Dom을 만들려면 Dom api를 사용할 수 밖에 없음
@@ -24,14 +31,37 @@ export function createDom(node) {
   return element;
 }
 
-export function createEl(tag, props, ...children) {
-  props = props || {};  //undefined나 null이 들어왔을 경우를 위한 방어코드
+function makeProps(props, children) {
   return {
-    //가변인자 children 배열이됨
-    tag, //이름이 변수와 같으니 생략가능 tag: tag
-    props,
-    children,
+    ...props,
+    children: children.length === 1 ? children[0] : children,
   };
+}
+
+export function createEl(tag, props, ...children) {
+  props = props || {}; //undefined나 null이 들어왔을 경우를 위한 방어코드
+
+  if (typeof tag === "function") {
+    if (tag.prototype instanceof Component) {
+      //클래스라면
+      const instance = new tag(makeProps(props, children));
+      return instance.render();
+    } else {
+      //일반함수라면
+      if (children.length > 0) {
+        return tag(makeProps(props, children));
+      } else {
+        return tag(props);
+      }
+    }
+  } else {
+    return {
+      //가변인자 children 배열이됨
+      tag, //이름이 변수와 같으니 생략가능 tag: tag
+      props,
+      children,
+    };
+  }
 }
 
 export function render(vdom, container) {
