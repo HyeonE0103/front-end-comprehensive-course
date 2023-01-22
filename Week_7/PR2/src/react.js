@@ -24,6 +24,16 @@ export function createDom(node) {
   return element;
 }
 
+export function createEl(tag, props, ...children) {
+  props = props || {};  //undefined나 null이 들어왔을 경우를 위한 방어코드
+  return {
+    //가변인자 children 배열이됨
+    tag, //이름이 변수와 같으니 생략가능 tag: tag
+    props,
+    children,
+  };
+}
+
 export function render(vdom, container) {
   container.appendChild(createDom(vdom));
   //container에 자식 추가

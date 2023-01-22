@@ -1,7 +1,10 @@
-import { createDom, render } from "./react";
-
+import { createEl, render } from "./react";
+//이 js파일에서 createEl을 사용하지 않더라도 실제 실행은 트랜스파일링된 bundle파일이
+//실행이 되고 createEl이 사용되므로 createEl을 포함시켜주어야 함
+/* @jsx createEl*/
 const vdom = {
   //가상돔 멋쟁이 vdom
+  //내용이 많아지면 복잡하고 번잡스러워짐 -> 개선요소
   tag: "p", //HTML구조 태그 이름,속성들, 자식요소
   props: {}, //속성, 여러개 가질 수 있으니깐 배열 or 객체
   //속성은 이름-값 쌍으로 되어있는데 배열은 이름을 가질 수 없기 때문에 객체로
@@ -37,6 +40,36 @@ const vdom = {
     },
   ],
 };
-
-render(vdom, document.querySelector("#root"));
+//render(vdom, document.querySelector("#root"));
 //id가 root인 태그에 자식태그 추가
+
+const vdom2 = createEl(
+  //함수호출방법 사용
+  "p",
+  {},
+  createEl("h1", {}, "react 만들기"),
+  createEl(
+    "ul",
+    {},
+    createEl("li", { style: "color:purple" }, "첫번째 아이템"),
+    createEl("li", { style: "color:pink" }, "두번째 아이템"),
+    createEl("li", { style: "color:hotpink" }, "세번째 아이템")
+  )
+);
+// render(vdom2, document.querySelector("#root"));
+
+const vdom3 = (
+  //마크업과 같은 구조 이용
+  //실행안됨 Babel로 돌려보면 밑에것을 babel이 위에 함수호출방식으로 바꿔줌
+  //그래서 /* @jsx createEl*/을 사용해 명시해줌
+  //하지만 인자가 없는 경우 null로 넘겨주어 아직 오류가 남
+  <p>
+    <h1>React 만들기</h1>
+    <ul>
+      <li style="color:green">첫번째 아이템</li>
+      <li style="color:yellowgreen">두번째 아이템</li>
+      <li style="color:turquoise">세번째 아이템</li>
+    </ul>
+  </p>
+);
+render(vdom3, document.querySelector("#root"));
