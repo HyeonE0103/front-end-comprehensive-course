@@ -10,7 +10,13 @@ export function reducer(state = InititalizeState, action) {
     case ActionType.DECREASE:
       return { ...state, count: state.count - 1 };
     case ActionType.RESET:
-      return { ...state, count: 0 };
+      fetch("/reset")
+        .then((response) => response.json())
+        .then((result) => { //result함수는 비동기로 콜백되는 함수
+          if (result) {
+            return { ...state, count: 0 };
+          }
+        });
     default:
       return { ...state };
   }
